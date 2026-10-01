@@ -1,0 +1,31 @@
+{
+  "name": "lagzero",
+  "version": "1.0.0",
+  "description": "LagZero اداة تعزيز اداء الالعاب على نظام ويندوز",
+  "main": "src/main/main.js",
+  "author": "LagZero",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "node -e \"console.log('No native dependencies to rebuild')\"",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "sudo-prompt": "^9.2.1",
+    "systeminformation": "^5.21.0"
+  },
+  "devDependencies": {
+    "electron": "^41.10.6",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.lagzero.app",
+    "productName": "LagZero",
+    "win": { "target": ["nsis", "portable"] },
+    "files": ["src/**/*"]
+  }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'">
+<title>LagZero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <nav class="nav" aria-label="التنقل الرئيسي">
+      <button class="navItem active" data-tab="dash" data-title="الرئيسية" aria-label="الرئيسية" title="الرئيسية">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z"/></svg>
+      </button>
+      <button class="navItem" data-tab="games" data-title="الألعاب" aria-label="الألعاب" title="الألعاب">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.58 16.09l-1.09-7.66A3.996 3.996 0 0 0 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.13.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91ZM11 11H9v2H8v-2H6v-1h2V8h1v2h2v1Zm4-1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1Zm2 3c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1Z"/></svg>
+      </button>
+      <button class="navItem" data-tab="procs" data-title="العمليات" aria-label="العمليات" title="العمليات">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h2v2H3V5Zm4 0h14v2H7V5ZM3 11h2v2H3v-2Zm4 0h14v2H7v-2ZM3 17h2v2H3v-2Zm4 0h14v2H7v-2Z"/></svg>
+      </button>
+      <button class="navItem" data-tab="settings" data-title="الإعدادات" aria-label="الإعدادات" title="الإعدادات">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.49.49 0 0 0-.12-.61l-2.01-1.58ZM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2Z"/></svg>
+      </button>
+    </nav>
+    <div class="brand" aria-label="LagZero">
+      <svg class="brandBolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 1 4 13h6l-1 10 11-14h-7l1-8Z"/></svg>
+      <div class="brandText">Lag<span>Zero</span></div>
+    </div>
+    <div class="headerStatus">
+      <h1 id="pageTitle" class="srOnly">الرئيسية</h1>
+      <div id="boostBadge" class="badge">الوضع العادي</div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="content">
+
+      <section id="dash" class="panel active">
+        <div class="heroStage">
+          <button id="btnBoost" class="boostBtn" aria-label="بدء التعزيز الفوري">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 1 4 13h6l-1 10 11-14h-7l1-8Z"/></svg>
+            <span id="boostBtnText">BOOST</span>
+          </button>
+          <p id="boostResult" class="boostResult" aria-live="polite"></p>
+        </div>
+
+        <div class="metricPanel" aria-label="مؤشرات النظام">
+          <div class="metricItem">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="4"/><path d="M18 18h12v12H18zM18 4v7m12-7v7M18 37v7m12-7v7M4 18h7m-7 12h7m26-12h7m-7 12h7"/><path class="iconAccent" d="M22 25h4"/></svg>
+            <div class="metricCopy"><span class="metricLabel">CPU</span><span class="metricValue unavailable"><span id="cpuPct">--</span><small>%</small></span></div>
+          </div>
+          <div class="metricItem">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="28" rx="3"/><path d="M13 16h22v16H13zM4 17h4m-4 7h4m-4 7h4m32-14h4m-4 7h4m-4 7h4"/><circle class="iconAccent" cx="20" cy="24" r="4"/><circle class="iconAccent" cx="29" cy="24" r="4"/></svg>
+            <div class="metricCopy"><span class="metricLabel">GPU</span><span class="metricValue unavailable" title="لا تتوفر قراءة مباشرة من النظام">غير متاح</span></div>
+          </div>
+          <div class="metricItem">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M24 13v12l8 5"/><path class="iconAccent" d="M24 8v3m0 26v3"/></svg>
+            <div class="metricCopy"><span class="metricLabel">MS</span><span class="metricValue unavailable" title="لا تتوفر قراءة مباشرة من النظام">غير متاح</span></div>
+          </div>
+          <div class="metricItem">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18a28 28 0 0 1 38 0M11 25a19 19 0 0 1 26 0m-20 7a10 10 0 0 1 14 0"/><circle class="iconAccent" cx="24" cy="38" r="2"/></svg>
+            <div class="metricCopy"><span class="metricLabel">PING</span><span class="metricValue unavailable" title="لا تتوفر قراءة مباشرة من النظام">غير متاح</span></div>
+          </div>
+          <div class="metricItem">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="9" width="26" height="34" rx="4"/><path d="M19 5h10m-8 29V17"/><path class="iconAccent" d="M18 34h12"/></svg>
+            <div class="metricCopy"><span class="metricLabel">BATTERY</span><span class="metricValue unavailable" title="لا تتوفر قراءة مباشرة من النظام">غير متاح</span></div>
+          </div>
+          <div class="metricItem">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="4"/><path d="M18 18h12v12H18zM18 4v7m12-7v7M18 37v7m12-7v7M4 18h7m-7 12h7m26-12h7m-7 12h7"/><path class="iconAccent" d="M22 24h4M24 22v4"/></svg>
+            <div class="metricCopy"><span class="metricLabel">RAM</span><span class="metricValue unavailable"><span id="ramPct">--</span><small>%</small></span></div>
+          </div>
+        </div>
+
+        <details class="activityDrawer">
+          <summary>سجل النشاط</summary>
+          <div class="activityBody">
+            <button id="btnClearLog" class="ghostBtn">تفريغ السجل</button>
+            <ul id="log" class="logList"></ul>
+          </div>
+        </details>
+      </section>
+
+      <section id="games" class="panel" role="region" aria-labelledby="gamesTitle">
+        <div class="toolbar">
+          <button id="btnAddExe" class="btn" aria-label="اضافة لعبة من ملف تنفيذي">اضافة لعبة من ملف تنفيذي</button>
+          <button id="btnCapture" class="btn" aria-label="التقاط النافذة النشطة">التقاط النافذة النشطة</button>
+        </div>
+        <div class="card">
+          <div class="cardHead">
+            <h3 id="gamesTitle">قائمة الالعاب المراقبة</h3>
+            <span id="gamesCount" class="chip" aria-live="polite">0</span>
+          </div>
+          <ul id="gamesList" class="list" role="list"></ul>
+          <p id="gamesEmpty" class="empty">لم تتم اضافة اي لعبة بعد. اضف ملفاً تنفيذياً او التقط نافذة اللعبة وهي قيد التشغيل.</p>
+        </div>
+      </section>
+
+      <section id="procs" class="panel" role="region" aria-labelledby="procsTitle">
+        <div class="toolbar">
+          <button id="btnRefresh" class="btn" aria-label="تحديث قائمة العمليات">تحديث القائمة</button>
+          <button id="btnKill" class="btn danger" aria-label="انهاء العمليات المحددة">انهاء العمليات المحددة</button>
+        </div>
+        <div class="card tableCard">
+          <div class="tableWrap">
+            <table role="table" aria-label="قائمة العمليات">
+              <thead>
+                <tr>
+                  <th class="colCheck" scope="col">تحديد</th>
+                  <th scope="col">العملية</th>
+                  <th scope="col">الذاكرة</th>
+                  <th scope="col">العدد</th>
+                </tr>
+              </thead>
+              <tbody id="procRows"></tbody>
+            </table>
+          </div>
+        </div>
+        <p class="hint" id="procsTitle">العمليات المحمية لا يمكن انهاؤها حفاظاً على استقرار النظام.</p>
+      </section>
+
+      <section id="settings" class="panel">
+        <div class="card settingsCard">
+          <div class="cardHead"><h3>سلوك التعزيز التلقائي</h3></div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_enableKill" aria-label="إنهاء تطبيقات الخلفية تلقائياً"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">انهاء تطبيقات الخلفية تلقائياً</span>
+              <span class="settingDesc">محاولة إنهاء العمليات المدرجة عند بدء اللعب، باستثناء العمليات المحمية</span>
+            </div>
+          </div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_enableTrim" aria-label="تقليص ذاكرة العمليات الخلفية"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">تفريغ ذاكرة العمليات الخلفية</span>
+              <span class="settingDesc">طلب تقليص الذاكرة المقيمة للعمليات؛ قد يعيد Windows تحميلها عند الحاجة</span>
+            </div>
+          </div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_enableNotifications" aria-label="تعديل إعدادات الإشعارات أثناء اللعب"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">حظر الاشعارات اثناء اللعب</span>
+              <span class="settingDesc">تعديل إعدادات إشعارات Windows مؤقتاً ثم محاولة استعادة القيم السابقة</span>
+            </div>
+          </div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_enableGameDVR" aria-label="تعديل إعدادات تسجيل الألعاب"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">تعطيل مسجل الالعاب</span>
+              <span class="settingDesc">تعديل إعدادات تسجيل الألعاب في Windows ثم محاولة استعادة القيم السابقة</span>
+            </div>
+          </div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_enablePowerPlan" aria-label="تفعيل خطة أداء عالية أثناء اللعب"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">تفعيل خطة الاداء العالي</span>
+              <span class="settingDesc">التبديل إلى خطة أداء عالية متاحة ثم محاولة استعادة الخطة السابقة</span>
+            </div>
+          </div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_enablePriority" aria-label="رفع أولوية اللعبة"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">رفع اولوية اللعبة</span>
+              <span class="settingDesc">طلب تعيين عملية اللعبة على أولوية عالية؛ قد يرفض Windows هذا التغيير</span>
+            </div>
+          </div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_createUltimate" aria-label="إنشاء خطة الأداء القصوى"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">انشاء خطة الاداء القصوى</span>
+              <span class="settingDesc">اضافة خطة الطاقة القصوى الى النظام ويتطلب ذلك صلاحيات المسؤول</span>
+            </div>
+          </div>
+
+          <div class="settingRow">
+            <label class="switch"><input type="checkbox" id="s_startAtLogin" aria-label="تشغيل LagZero عند تسجيل الدخول إلى Windows"><span class="slider"></span></label>
+            <div class="settingText">
+              <span class="settingTitle">التشغيل مع بدء تشغيل ويندوز</span>
+              <span class="settingDesc">تشغيل LagZero تلقائياً عند تسجيل الدخول إلى Windows</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card settingsCard">
+          <div class="cardHead"><h3>قائمة انهاء الخلفية</h3></div>
+          <p class="hint">اكتب اسم كل عملية في سطر مستقل على الصورة التالية chrome.exe</p>
+          <textarea id="s_killList" rows="8" spellcheck="false"></textarea>
+        </div>
+
+        <div class="card settingsCard">
+          <div class="cardHead"><h3>المراقبة</h3></div>
+          <label class="fieldLabel" for="s_pollMs">الفترة الزمنية لفحص النافذة النشطة بالمللي ثانية</label>
+          <input type="number" id="s_pollMs" min="500" max="5000" step="100">
+        </div>
+
+        <div class="saveRow">
+          <button id="btnSave" class="btn primary">حفظ الاعدادات</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<div id="toasts" class="toasts"></div>
+<script src="app.js"></script>
+</body>
+</html>
